@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+:root {
+  /* Real Sports inspired pure black and white */
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #0a0a0a;
+  --card-foreground: #ffffff;
+  --primary: #0080ff;  /* Bright blue accent */
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #888888;
+  --border: #2a2a2a;
+  --ring: #0080ff;
+  --radius: 1rem;
+  
+  /* Real Sports specific colors */
+  --sports-bg: #000000;
+  --sports-surface: rgba(255, 255, 255, 0.05);
+  --sports-surface-hover: rgba(255, 255, 255, 0.08);
+  --sports-border: rgba(255, 255, 255, 0.1);
+  --sports-text-primary: #ffffff;
+  --sports-text-secondary: #aaaaaa;
+  --sports-text-tertiary: #666666;
+  --sports-accent: #0080ff;
+  --sports-accent-hover: #0066cc;
+  --sports-glass: rgba(255, 255, 255, 0.03);
+}
+
+/* Force dark mode always for Real Sports aesthetic */
+@media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+  :root {
+    /* Keep the same pure black theme regardless of system preference */
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #0a0a0a;
+    --card-foreground: #ffffff;
+    --primary: #0080ff;
+    --primary-foreground: #ffffff;
+    --secondary: #1a1a1a;
+    --secondary-foreground: #ffffff;
+    --muted: #1a1a1a;
+    --muted-foreground: #888888;
+    --border: rgba(255, 255, 255, 0.15);
+    --ring: #0080ff;
+    
+    --sports-bg: #000000;
+    --sports-surface: rgba(255, 255, 255, 0.05);
+    --sports-surface-hover: rgba(255, 255, 255, 0.08);
+    --sports-border: rgba(255, 255, 255, 0.15);
+    --sports-text-primary: #ffffff;
+    --sports-text-secondary: rgba(255, 255, 255, 0.6);
+    --sports-text-tertiary: rgba(255, 255, 255, 0.4);
+    --sports-accent: #0080ff;
+    --sports-accent-hover: #0066cc;
+    --sports-glass: rgba(255, 255, 255, 0.03);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  background: var(--sports-bg);
+  color: var(--sports-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Real Sports glassmorphism - sleek and modern */
+.glass-panel {
+  background: var(--sports-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid var(--sports-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+  background: var(--sports-surface-hover);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Bold text for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Real Sports search input */
+.search-input-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.search-input-wrapper:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.search-input-wrapper:focus-within {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--sports-accent);
+  box-shadow: 0 0 0 2px rgba(0, 128, 255, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Real Sports buttons */
+.sports-button {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--sports-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sports-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.sports-button-primary {
+  background: var(--sports-accent);
+  color: white;
+  border: 1px solid var(--sports-accent);
+}
+
+.sports-button-primary:hover {
+  background: var(--sports-accent-hover);
+  border-color: var(--sports-accent-hover);
+  box-shadow: 0 4px 16px rgba(0, 128, 255, 0.3);
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
